@@ -1,0 +1,41 @@
+<div class="div-background">
+    <div class="row justify-content-center margin-top-20 ">
+        <div class="col-2 title-user">Email:</div>
+        <div class="col-2 title-name-user">{{emailUser}}</div>
+        <div class="col-2 text-right">
+            <button class="btn-event" (click)="exitEvents()">Salir</button>
+        </div>
+        <div class="col-2 text-left">
+            <button class="btn-event" (click)="createEvent()">Crear evento</button>
+        </div>
+    </div>
+    <div *ngIf="hasEvents">
+        <div class="row justify-content-center title-event margin-top-20">
+            <div class="col-2 text-center ">Nombre Evento</div>
+            <div class="col-2 text-center">Fecha creación</div>
+            <div class="col-1 text-center">Ver</div>
+            <div class="col-1 text-center">Editar</div>
+            <div class="col-1 text-center">Eliminar</div>
+        </div>
+        <div *ngFor="let event of arrayEvents, let i = index">
+            <div class="row justify-content-center margin-top-20">
+                <div class="col-2 text-center">{{event.name}}</div>
+                <div class="col-2 text-center">{{event.detail}}</div>
+                <div class="col-1 text-center">
+                    <div class="icon-view" (click)="redirect(event.id, 'detail')"></div>
+                </div>
+                <div class="col-1 text-center">
+                    <div class="icon-edit" (click)="redirect(event.id, 'edit')"></div>
+                </div>
+                <div class="col-1 text-center">
+                    <div class="icon-delete" (click)="deleteEvent(event.id)"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!hasEvents">
+        <div class="row justify-content-center title-event margin-top-20">
+            <div class="col-4 text-center ">Usted aún no tiene eventos creados.</div>
+        </div>
+    </div>
+</div>

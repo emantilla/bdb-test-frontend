@@ -1,0 +1,52 @@
+.div-background{
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    background-color:#cdcdd7;
+}
+.text-right {
+    text-align: right;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.margin-top-10 {
+    margin-top: 10px;
+}
+
+.width-input {
+    width: 80%;
+}
+.title-event {
+    font-size: 20px;
+    color: #211791;
+    font-style: italic;
+    font-weight: bold;
+    margin: 20px 0px 10px 0px;
+}
+.btn-event {
+    height: 35px;
+    width: 150px;
+    border: solid 2px#adabf2;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.btn-return {
+    margin-top: 20px;
+    height: 25px;
+    width: 100px;
+    border: solid 2px #adabf2;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 12px;
+}

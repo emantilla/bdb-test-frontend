@@ -1,0 +1,75 @@
+<div class="div-background">
+    <div class="row justify-content-center">
+        <div class="col-2 text-center title-event">Creación Evento</div>
+        <div class="col-2 text-right">
+                <button class="btn-return" (click)="return()">Regresar</button>
+            </div>
+    </div>
+    <div class="row justify-content-center margin-top-10">
+        <div class="col-2 text-right">Nombre Evento</div>
+        <div class="col-4 text-left">
+            <input class="width-input" [value]="eventToProcess.name"  [disabled]="isOnlyView"
+            (input)="updateEvent($event.target.value, 'name')"></div>
+    </div>
+    <div class="row justify-content-center margin-top-10">
+        <div class="col-2 text-right">Detalle</div>
+        <div class="col-4 text-left">
+            <input class="width-input" [value]="eventToProcess.detail"  [disabled]="isOnlyView"
+            (input)="updateEvent($event.target.value, 'detail')"></div>
+    </div>
+    <div class="row justify-content-center margin-top-10">
+        <div class="col-2 text-right">Lugar</div>
+        <div class="col-4 text-left">
+            <input class="width-input" [value]="eventToProcess.place"  [disabled]="isOnlyView"
+            (input)="updateEvent($event.target.value, 'place')"></div>
+    </div>
+    <div class="row justify-content-center margin-top-10">
+        <div class="col-2 text-right">Dirección</div>
+        <div class="col-4 text-left">
+            <input class="width-input" [value]="eventToProcess.address"  [disabled]="isOnlyView"
+            (input)="updateEvent($event.target.value, 'address')"></div>
+    </div>
+    <div class="row justify-content-center margin-top-10">
+        <div class="col-2 text-right">Fecha Inicio</div>
+        <div class="col-4 text-left">
+            <input class="width-input" [value]="eventToProcess.start_date"  [disabled]="isOnlyView"
+            (input)="updateEvent($event.target.value, 'start_date')"></div>
+    </div>
+    <div class="row justify-content-center margin-top-10">
+        <div class="col-2 text-right">Fecha Fin</div>
+        <div class="col-4 text-left">
+            <input class="width-input"[value]="eventToProcess.end_date"  [disabled]="isOnlyView"
+            (input)="updateEvent($event.target.value, 'end_date')"></div>
+    </div>
+    <div class="row justify-content-center margin-top-10">
+        <div class="col-2 text-right">Categoria</div>
+        <div class="col-4 text-left">
+            <input class="width-input" [value]="typeRequest !== 'detail'?eventToProcess.category_type:categoryDesc"  [disabled]="isOnlyView" *ngIf="isOnlyView"
+            (input)="updateEvent($event.target.value, 'category_type')">
+            <select *ngIf="!isOnlyView" class="width-input" (change)="updateEvent($event.target.value, 'category_type')">
+                    <option value="" disabled>Seleccione</option>
+                    <option *ngFor="let cat of arrayCategories"  ngValue="cat.id" [selected]= "cat.id === eventToProcess.category_type">{{cat.name}}</option>
+                 </select>
+                </div>
+
+    </div>
+    <div class="row justify-content-center margin-top-10">
+        <div class="col-2 text-right">Tipo de evento</div>
+        <div class="col-4 text-left">
+            <input class="width-input" [value]="typeRequest !== 'detail'?eventToProcess.event_type:typeDesc"  [disabled]="isOnlyView" *ngIf="isOnlyView"
+            (input)="updateEvent($event.target.value, 'event_type')">
+
+            <select *ngIf="!isOnlyView" class="width-input" (change)="updateEvent($event.target.value, 'event_type')">
+                    <option value="" disabled>Seleccione</option>
+                    <option *ngFor="let typ of arrayTypes"  ngValue="typ.id" [selected]="typ.id === eventToProcess.event_type">{{typ.name}}</option>
+                 </select>
+
+
+        </div>
+    </div>
+    <div class="row justify-content-center margin-top-10">
+        <div class="col-2 text-center">
+            <button class="btn-event" [disabled]="!activeBtn" (click)="requestToExecute()">{{titleBtn}}</button>
+        </div>
+    </div>
+</div>
